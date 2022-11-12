@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.containers{
+    display: flex;
+}
+.left-side{
+    height: 100vh;
+    width: 30%;
+    background-image: linear-gradient(to right, rgb(49, 234, 173), rgb(31, 174, 174));
+}
+.logo-info{
+    display: flex;
+    align-items: center;
+   
+}
+.logo-img{
+    width:50px ;
+    height:50px ;
+    margin: 0px 10px;
+}
+.cancel{
+    font-size: 24px;
+    color: white;
+    margin: -50px 380px;
+}
+.left-text-body{
+    text-align: center;
+    margin-top: 38%;
+    color: white;
+}
+.left-text-body p{
+    margin: 10px auto;
+}
+
+.left-text-body button{
+    border: none;
+    outline: none;
+    width: 150px;
+    background-color: white;
+    color: rgb(31, 174, 174);
+    padding: 7px 10px;
+    border-radius: 15px;
+    margin: 25px auto;
+}
+.right-side{
+    width: 70%;
+}
+
+
+hr{
+    width: 400px;
+    margin:10px auto;
+    margin-bottom: 20px;
+}
+.right-form-body .form{
+    text-align: center;
+}
+
+.form input{
+    display: block;
+    width: 360px;
+    padding: 6px 15px;
+    background-color: rgb(234, 247, 242);
+    border: none;
+    outline: none;
+    
+    border-radius: 15px;
+    font-size: 14px;
+    margin: 6px auto;
+    margin-top: 12px;
+}
+.form input[type="file"]{
+
+    background-color: white;
+
+}
+.form button{
+    border: none;
+    outline: none;
+    width: 160px;
+    background-color: rgb(31, 174, 174);
+    color: white;
+    padding: 7px 10px;
+    border-radius: 15px;
+    margin: 15px 100px;
+}
+.form a{
+    margin-left: 145px;
+}

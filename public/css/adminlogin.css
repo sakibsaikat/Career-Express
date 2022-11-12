@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.main_container{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to right, rgb(49, 234, 173), rgb(31, 174, 174));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-box{
+    padding: 30px 40px;
+    width: 450px;
+    height: 370px;
+    border-radius: 10px;
+    background-color: rgb(235, 244, 241);
+    box-shadow: 5px 5px 20px rgba(158, 157, 157, 0.47);
+}
+
+.login-box input{
+    display: block;
+    margin: 10px auto;
+    border: none;
+    outline: none;
+    padding: 6px 15px;
+    background-color: rgb(220, 220, 220);
+    border-radius: 30px;
+    width: 90%;
+}
+.login-box button{
+    display: block;
+    margin: 10px auto;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    padding: 6px 15px;
+    background: linear-gradient(to right, rgb(49, 234, 173), rgb(31, 174, 174));
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    width: 90%;
+}
+
+.login-box form a{
+    color: rgb(62, 61, 61);
+    display: block;
+    margin-top: -20px;
+    
+}

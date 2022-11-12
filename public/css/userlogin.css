@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.containers{
+    display: flex;
+}
+.left-side{
+    width: 70%;
+}
+.logo-info{
+    display: flex;
+    align-items: center;
+   
+}
+.logo-img{
+    width:50px ;
+    height:50px ;
+    margin: 0px 10px;
+}
+.left-text-body{
+    margin-top: 100px;
+    text-align: center;
+}
+hr{
+    width: 410px;
+
+    margin: 20px auto;
+    margin-top: 10px;
+}
+.left-form-body .form{
+    text-align: center;
+    
+}
+
+.form input{
+    display: block;
+    width: 400px;
+    padding: 7px 15px;
+    background-color: rgb(234, 247, 242);
+    border: none;
+    outline: none;
+    margin: 10px auto;
+    margin-top: 18px;
+    border-radius: 15px;
+}
+.form button{
+    border: none;
+    outline: none;
+    width: 200px;
+    background-color: rgb(31, 174, 174);
+    color: white;
+    padding: 7px 10px;
+    border-radius: 15px;
+    margin-top: 10px;
+
+}
+.form a{
+    color: rgb(51, 48, 48);
+    display: block;
+    margin-top: 15px;
+  
+}
+.right-side{
+    height: 100vh;
+    width: 30%;
+    background-image: linear-gradient(to right, rgb(49, 234, 173), rgb(31, 174, 174));
+}
+
+.right-text-body{
+    text-align: center;
+    margin-top: 35%;
+    color: white;
+}
+.right-text-body p{
+    margin-top: 30px;
+}
+
+.right-text-body button{
+    border: none;
+    outline: none;
+    width: 200px;
+    background-color: white;
+    color: rgb(31, 174, 174);
+    padding: 7px 10px;
+    border-radius: 15px;
+    margin: 25px 100px;
+}
