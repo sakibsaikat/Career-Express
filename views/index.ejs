@@ -30,6 +30,8 @@
             </ul>
         </div>
         <div class="login-section">
+            <a href="/cdash" class="btn btn-dark btn-sm text-light">Shilon Panel</a>
+            <a href="/tdash" class="btn btn-secondary text-light btn-sm mx-2">Training Panel</a>
             <button class="btn btn-sm btn-light text-success"><span><i class="fa fa-user me-2"></i></span><a href="/signin">Sign in</a></button>
             <button class="ms-2 btn btn-sm btn-success text-light reg-btn"><span><i class="fa fa-user me-2"></i></span><a href="/registration">Register</a></button>
         </div>
@@ -154,31 +156,14 @@
                     Recent Posts
                 </p>
                 <ul class="admission-body">
+                    <% postData.forEach(function(admission){ %>
                     <li>
-                        <p class="fw-bold fs-6">Northern University Bangladesh</p>
-                        <p class="text-muted admission-description">Lorem ipsum dolor sit amet consectetur.</p>
+                        <p class="fw-bold fs-6"><%= admission.heading %></p>
+                        <p class="text-muted admission-description"><%= admission.description %></p>
                         <hr class="hr_line">
                     </li>
-                    <li>
-                        <p class="fw-bold fs-6">AIUB University</p>
-                        <p class="text-muted admission-description">Lorem ipsum dolor sit amet consectetur.</p>
-                        <hr class="hr_line">
-                    </li>
-                    <li>
-                        <p class="fw-bold fs-6">IUBAT University</p>
-                        <p class="text-muted admission-description">Lorem ipsum dolor sit amet consectetur.</p>
-                        <hr class="hr_line">
-                    </li>
-                    <li>
-                        <p class="fw-bold fs-6">BUET</p>
-                        <p class="text-muted admission-description">Lorem ipsum dolor sit amet consectetur.</p>
-                        <hr class="hr_line">
-                    </li>
-                    <li>
-                        <p class="fw-bold fs-6">Dhaka University</p>
-                        <p class="text-muted admission-description">Lorem ipsum dolor sit amet consectetur.</p>
-                        <hr class="hr_line">
-                    </li>
+
+                    <% }) %>
                     
                 </ul>
             </div>

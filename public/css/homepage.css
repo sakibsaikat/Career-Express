@@ -281,3 +281,14 @@ ul.training-body li p{
 .copyrights{
     background-color: black;
 }
+
+.admission{
+    overflow-y: hidden;
+}
+
+.admission-body .admission-description{
+    max-width: 150px;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

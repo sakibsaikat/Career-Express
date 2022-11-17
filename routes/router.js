@@ -1,13 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const dbmodel = require('../model/dbmodel');
+const Admission = require('./../src/model/admissionpostModel');
+let areas = require('./../src/model/try.js');
+let UserController = require('./../src/controller/userController');
+let AdmissionController = require('./../src/controller/admissionController');
+let TrainingController = require('./../src/controller/trainingController');
 
-router.get('/', (req, res)=> {
-    res.render('index');
-});
+router.get('/', AdmissionController.GetUserPostAPI);
 
 router.get('/registration', (req, res)=> {
-    res.render('registration');
+    res.render('registration',{
+        areas:areas
+    }
+    );
 });
 
 router.get('/adminlogin', (req, res)=> {
@@ -18,73 +23,33 @@ router.get('/userlogin', (req, res)=> {
     res.render('userlogin');
 });
 
-router.get('/userinfo', (req, res)=> {
-    dbmodel.find((err, docs)=> {
-        if(!err){
-            res.render('userinfo', {bracs:docs});
-        }
-        else{
-            console.log("Error 404");
-        }
-    });
+router.get('/tdash', (req, res)=> {
+    res.render('dashTraining');
 });
-
-router.get('/update/:id', (req, res)=> {
-    dbmodel.findOneAndUpdate({_id: req.params.id}, req.body, {new: true}, (err, docs)=> {
-        if(err){
-            console.log("Update operation failed");
-        }
-        else{
-            res.render('update', {brac: docs});
-        }
-    });
+router.get('/cdash', (req, res)=> {
+    res.render('dashc');
 });
 
 
 
-router.post('/send', (req, res)=> {
-    const {fullname, email, password, mobile, dateofbirth, gender, location, file} = req.body;
-   // console.log(fullname, email, password, mobile, dateofbirth, gender, location, file);
-   const bracUser = new dbmodel({
-    fullname,
-    email, 
-    password, 
-    mobile, 
-    dateofbirth, 
-    gender, 
-    location, 
-    file 
-   });
-   bracUser.save((err)=> {
-    if(err){
-        console.log("Database can't reached data");
-    }else{
-        console.log("Data save successfully");
-        res.redirect('/');
-    }
-        
-   });
-});
 
-router.post('/update/:id', (req, res)=> {
-    dbmodel.findByIdAndUpdate({_id: req.params.id}, req.body, (err, docs)=> {
-        if(err){
-            console.log("Data doesn't update");
-        }
-        else{
-            res.redirect('/userinfo');
-        }
-    });
-});
 
-router.get('/userinfo/:id', (req, res)=> {
-    dbmodel.findByIdAndDelete({_id: req.params.id}, (err, docs)=> {
-        if(err){
-            console.log("Data doesn't delete");
-        }
-        else{
-            res.redirect('/userinfo');
-        }
-    });
-});
+
+
+router.post('/send',UserController.SendUserDataAPI);
+
+router.post('/sendadpost',AdmissionController.SendUserDataAPI);
+router.get('/admission',AdmissionController.GetUserDataAPI);
+router.get('/admission_info/:id',AdmissionController.GetInfoAPI);
+router.post('/update_admission/:id',AdmissionController.UpdateUserDataAPI);
+
+router.get('/training',TrainingController.GetUserDataAPI);
+
+
+
+router.get('/admissionc',AdmissionController.GetCUserDataAPI);
+
+router.get('/trainingc',TrainingController.GetCUserDataAPI);
+
+
 module.exports = router;

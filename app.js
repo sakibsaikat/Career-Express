@@ -3,38 +3,28 @@ const myRouter = require('./routes/router');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const port = 5500;
+const port = 5700;
+require('./src/db/conn');
 
-mongoose.connect('mongodb://localhost:27017/brac', {
-    useNewUrlParser: true
-});
-const db = mongoose.connection;
-db.on('error', ()=> {
-    console.log("Database connection failed");
-});
-db.once('open', ()=>{
-    console.log("Database connection established.");
-})
 
 app.set("view engine", "ejs");
+// app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
+app.use(express.urlencoded());
+app.use(express.json());
 
-app.use(express.static('public'));
+app.use('/',require('./routes/router'));
 
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: false}));
+// app.use(bodyParser.json());
 
-app.use('/', myRouter);
-app.use('/registration', myRouter);
-app.use('/adminlogin', myRouter);
-app.use('/userlogin', myRouter);
-app.use('/userinfo', myRouter);
 
 app.listen(port,(err)=> {
     if(!err){
-        console.log(`Server run on port ${port}`);
+        console.log(`Server is running on port ${port}`);
     }
     else{
         console("Error! Server down.");
     }
-})
+});

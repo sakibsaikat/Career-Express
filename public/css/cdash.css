@@ -1,0 +1,14 @@
+
+
+.side-bar{
+    background-color: rgb(24, 3, 44);
+}
+
+.items:hover{
+    color: rgba(240, 248, 255, 0.408);
+}
+
+.items:hover i,.items:hover .def{
+    color: white;
+    /* color: black; */
+}
