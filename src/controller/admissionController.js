@@ -20,7 +20,7 @@ exports.SendUserDataAPI = async (req,res)=>{
              status
          }).save();
 
-        res.redirect('/admission');
+        res.render('/admission');
 
     }catch(err){
         console.log(err);

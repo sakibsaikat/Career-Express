@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/registration.css">
+</head>
+
+<body>
+    <div class="containers">
+        <div class="left-side">
+            <div class="logo-info mt-4">
+                <div>
+                    <img src="img/online-learning.png" class="logo-img ms-4 " alt="logo">
+                </div>
+
+                <p class="display-6 fs-3 mt-3 text-light">Career Express</p>
+            </div>
+
+            <div class="left-text-body">
+                <h3 class="mt-5">Already Have Account?</h3>
+                <p>Sign in with your username<br>and password and enjoy your meal.</p>
+                <button>Sign In</button>
+            </div>
+        </div>
+        <div class="right-side">
+
+            <div class="alert alert-success alert-dismissible fade show" id="msg-box" role="alert">
+                <strong>Congrats!</strong> Your have successfully registered here.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-danger alert-dismissible fade show" id="msg-box2" role="alert">
+                <strong>Sorry!</strong> Something went wrong.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+
+
+
+            <h3 class="text-center py-2 mt-4">Create University Profile</h3>
+            <hr>
+            <div class="right-form-body">
+                <form id="form1" class="form" method="POST">
+                    <input type="text" placeholder="University name" name="name" required>
+                   
+                    
+                    <input list="browsers" name="location" id="location" placeholder="Location">
+
+                    <%  let Dhaka=Object.keys(areas['Dhaka']); 
+                        Dhaka=Dhaka.map(function(value){ return value+", Dhaka";}); 
+                        
+                        let Sylhet=Object.keys(areas['Sylhet']); Sylhet=Sylhet.map(function(value){ return value+",Sylhet"; }); 
+                        
+                        let Chittagong=Object.keys(areas['Chittagong']);
+                        Chittagong=Chittagong.map(function(value){ return value+", Chittagong"; }); 
+                        
+                        let Barisal=Object.keys(areas['Barisal']); 
+                        Barisal=Barisal.map(function(value){ return value+", Barisal"; }); 
+                        
+                        let Rajshahi=Object.keys(areas['Rajshahi']);
+                        Rajshahi=Rajshahi.map(function(value){ return value+", Rajshahi"; }); 
+                        
+                        let Khulna=Object.keys(areas['Khulna']); 
+                        Khulna=Khulna.map(function(value){ return value+", Khulna"; }); 
+                        
+                        let Rangpur=Object.keys(areas['Rangpur']); Rangpur=Rangpur.map(function(value){ return value+", Rangpur"; }); 
+                        
+                        
+                        let Mymensingh=Object.keys(areas['Mymensingh']);
+                        Mymensingh=Mymensingh.map(function(value){ return value+", Mymensingh"; }); %>
+
+                        <datalist id="browsers">
+                            <% for(let x=0; x<Dhaka.length; x++){ %>
+                                <option value="<%= Dhaka[x] %>"></option>
+                                <% } %>
+                            <% for(let x=0; x<Rajshahi.length; x++){ %>
+                                <option value="<%= Rajshahi[x] %>"></option>
+                                <% } %>
+                            <% for(let x=0; x<Rangpur.length; x++){ %>
+                                <option value="<%= Rangpur[x] %>"></option>
+                                <% } %>
+                            <% for(let x=0; x<Khulna.length; x++){ %>
+                                <option value="<%= Khulna[x] %>"></option>
+                                <% } %>
+                            <% for(let x=0; x<Barisal.length; x++){ %>
+                                <option value="<%= Barisal[x] %>"></option>
+                                <% } %>
+                            <% for(let x=0; x<Chittagong.length; x++){ %>
+                                <option value="<%= Chittagong[x] %>"></option>
+                                <% } %>
+                            <% for(let x=0; x<Mymensingh.length; x++){ %>
+                                <option value="<%= Mymensingh[x] %>"></option>
+                                <% } %>
+
+
+                        </datalist>
+                        
+                        <select name="ugc" id="ugc">
+                            <option value="UGC Approval" selected disabled>UGC Approval</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                        
+                        <input type="text" placeholder="Username" name="username" required>
+                        <input type="password" placeholder="Password" name="password" required>
+                        <input type="password" placeholder="Confirm Password" name="password2" required>
+                        <input type="text" placeholder="Description" name="description" required>
+                        <button id="sbt">Create Account</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="js/userRegister.js"></script>
+</body>
+
+</html>

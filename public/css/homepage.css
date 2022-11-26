@@ -95,7 +95,7 @@ body::-webkit-scrollbar-thumb:hover {
     height: 350px;
     background-image: url('../img/people.jpg');
     background-size: 100% auto;
-    background-position: 0px -350px;
+    background-position: 0px -390px;
 }
 .inner-section-1{
     width: 100%;

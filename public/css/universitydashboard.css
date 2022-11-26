@@ -16,11 +16,11 @@
 
 .side-bar{
 
-    background-color: rgb(1, 23, 11);
+    background-color: rgb(1, 5, 13);
     /* background: linear-gradient(to left, rgb(13, 154, 107), rgb(12, 117, 117)); */
     width: 5%;
     height: 100vh;
-    transition: 0.6s;
+    transition: 0.4s;
 }
 .dash-icon{
     font-size: 24px;
@@ -32,7 +32,6 @@
     margin-top: 5px;
     margin-left: 16px;
     color: white;
-    white-space: nowrap;
 }
 .items i{
     font-size: 20px;
@@ -49,8 +48,8 @@
     margin-top: 10px;
 }
 .items:hover{
-    background: linear-gradient(to right, rgb(49, 234, 173), rgb(31, 174, 174));
-    /* background-color: rgba(240, 248, 255, 0.319); */
+    background: linear-gradient(to right, rgb(13, 3, 67), rgb(6, 54, 197));
+    /* background-color: rgba(240, 248, 255, 0.202); */
 
 }
 .items:hover i,.items:hover .def{
@@ -94,4 +93,8 @@ th,td{
 
 .modal-content{
     width: 700px;
+}
+
+.img-pro img{
+    border-radius: 50%;
 }
