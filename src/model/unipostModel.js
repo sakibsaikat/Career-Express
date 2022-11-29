@@ -33,6 +33,14 @@ let postSchema = new mongo.Schema({
         type:String,
         required:true
     },
+    t_credit:{
+        type:String,
+        required:true
+    },
+    pc_cost:{
+        type:String,
+        required:true
+    },
     cost:{
         type:String,
         required:true

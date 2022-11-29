@@ -73,6 +73,12 @@
                       </select>
 
                       <div class="mb-3">
+                        <input type="text" name="t_credit" class="form-control" aria-describedby="emailHelp" placeholder="Total Credit">
+                      </div>
+                      <div class="mb-3">
+                        <input type="text" name="pc_cost" class="form-control" aria-describedby="emailHelp" placeholder="Per Credit Cost">
+                      </div>
+                      <div class="mb-3">
                         <input type="text" name="cost" class="form-control" aria-describedby="emailHelp" placeholder="Regular Cost">
                       </div>
                     
@@ -89,13 +95,14 @@
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col">Date</th>
                     <th scope="col">Time</th>
                     <th scope="col">Degree</th>
                     <th scope="col">Semester</th>
                     <th scope="col">Department</th>
                     <th scope="col">Shift</th>
                     <th scope="col">Duration</th>
+                    <th scope="col">Total Credit</th>
+                    <th scope="col">Per Credit Cost</th>
                     <th scope="col">Regular Cost</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -104,14 +111,15 @@
                   <% data.forEach(function(value){ %>
 
                     <tr>
-                      <td><%= value.date %></td>
                       <td><%= value.time %></td>
                       <td><%= value.degree %></td>
                       <td><%= value.semester %></td>
                       <td><%= value.department %></td>
                       <td><%= value.shift %></td>
                       <td><%= value.duration %> years</td>
-                      <td><%= value.cost %> BDT</td>
+                      <td><%= value.t_credit %></td>
+                      <td><%= value.pc_cost %> BDT</td>
+                      <td><%= value.cost %> BDT</td> 
                      
                       <td>
                           <a href="/updateinfo/<%= value._id %>" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
@@ -143,5 +151,7 @@
     crossorigin="anonymous"></script>
   <script src="/js/dashboard.js"></script>
 </body>
+
+
 
 </html>

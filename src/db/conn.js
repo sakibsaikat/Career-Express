@@ -1,6 +1,6 @@
 const mongo = require('mongoose');
 
-mongo.connect('mongodb://localhost:27017/CareerExpress', {
+mongo.connect('mongodb://0.0.0.0:27017/CareerExpress', {
     useNewUrlParser: true,
     useUnifiedTopology:true
 }).then(() => {

@@ -23,13 +23,13 @@ exports.sendDataAPI = async (req,res)=>{
         let time = hour.toString()+":"+min+" "+ap;
 
 
-        const {semester,department,degree,duration,shift,cost} = req.body;
+        const {semester,department,degree,duration,shift,t_credit,pc_cost,cost} = req.body;
         const post_id="NUB1";
         const university_id = "NUBS12";
         const status = "NULL";
 
         let UniversityPost = await new PostModel({
-            university_id,date,degree,time,post_id,semester,department,duration,shift,cost,status
+            university_id,date,degree,time,post_id,semester,department,t_credit,pc_cost,duration,shift,cost,status
         }).save();
 
         res.redirect('/uc_post');
@@ -79,6 +79,8 @@ exports.updateDataAPI = async (req,res)=>{
             degree:req.body.degree,
             duration:req.body.duration,
             shift:req.body.shift,
+            t_credit:req.body.t_credit,
+            pc_cost:req.body.pc_cost,
             cost: req.body.cost,
             status:"NULL"
         }
