@@ -40,10 +40,10 @@
                         <option selected disabled>Select Semester</option>
 
                         <% let x = new Date(); %>
-                        <option value="Masters">Spring <%= x.getFullYear() %></option>
-                        <option value="Bachelor">Summer <%= x.getFullYear() %></option>
-                        <option value="Masters">Fall <%= x.getFullYear() %></option>
-                        <option value="Masters">Spring <%= x.getFullYear()+1 %></option>
+                        <option value="Spring <%= x.getFullYear() %>">Spring <%= x.getFullYear() %></option>
+                        <option value="Summer <%= x.getFullYear() %>">Summer <%= x.getFullYear() %></option>
+                        <option value="Fall <%= x.getFullYear() %>">Fall <%= x.getFullYear() %></option>
+                        <option value="Spring <%= x.getFullYear()+1 %>">Spring <%= x.getFullYear()+1 %></option>
                       </select>
                     <select class="form-select" aria-label="Default select example" name="department">
                         <option selected disabled>Select Department</option>
@@ -111,13 +111,11 @@
                       <td><%= value.department %></td>
                       <td><%= value.shift %></td>
                       <td><%= value.duration %> years</td>
-                      <td><%= value._id %> BDT</td>
-
-                      <% let n = value._id ; %>
+                      <td><%= value.cost %> BDT</td>
                      
                       <td>
-                          <a href="#" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
-                          <a type="submit" href="/unipostdel/<%= n %>" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
+                          <a href="/updateinfo/<%= value._id %>" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                          <a type="submit" href="/unipostdel/<%= value._id %>" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
                       </td>
                     </tr>
 

@@ -45,9 +45,13 @@ router.get('/udash',(req,res)=>{
 
 
 
+
 router.post('/upost',UniversityController.sendDataAPI);
 router.get('/uc_post',UniversityController.getDataAPI);
+router.get('/updateinfo/:id',UniversityController.getOneDataAPI);
+router.post('/updateupost/:id',UniversityController.updateDataAPI);
 router.get('/unipostdel/:id',UniversityController.deleteDataAPI);
+
 
 
 

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Panel Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/universitydashboard.css">
+  <link rel="stylesheet" href="/css/createunipost.css">
+</head>
+
+<body>
+
+  <div class="mainContainer d-flex justify-content-start">
+
+    <%- include("../partials/sidebaru.ejs") %>
+
+    <div id="right-content" class="contents">
+
+    <%- include("../partials/headeru.ejs") %>
+
+    <div class="content2">
+
+        <p class="display-6 ms-5 text-muted mt-4 fs-2">Update Post</p>
+
+        <div class="post-form">
+            <form action="/updateupost/<%= data._id %>" id="form1" class="form" method="POST">
+                <div class="department">
+
+                    <select class="form-select" aria-label="Default select example" name="degree">
+                        <% let degree = ["Bachelor","Masters"]; %>
+                        <% for(let x=0;x<degree.length;x++) { 
+                              if(degree[x]==data.degree){ %>
+
+                                <option value="<%= degree[x] %>" selected><%= degree[x] %></option>
+
+                              <% }else{ %>
+                                <option value="<%= degree[x] %>"><%= degree[x] %></option>
+                         <%  }
+                         } %>
+
+                      </select>
+                    <select class="form-select" aria-label="Default select example" name="semester">
+
+                        <% let x = new Date(); %>
+                        <% let year = x.getFullYear(); %>
+                        <% let sem = ["Spring "+year, "Summer "+year,"Fall "+year,"Spring "+(year+1)]; %>
+                        <% for(x=0;x<sem.length;x++) { 
+                          if(sem[x]==data.semester){ %>
+                              <option value="<%= sem[x] %>" selected><%= sem[x] %></option>
+                          <% }else{ %>
+                            <option value="<%= sem[x] %>"><%= sem[x] %></option>
+                          <%  }
+                          } %>
+                        
+                      </select>
+                    <select class="form-select" aria-label="Default select example" name="department">
+                        <option selected disabled>Select Department</option>
+                        <% let dep = ["CSE","EEE","CE","BBA","Textile","English","Bangla","Architechture"]; %>
+                        
+                        <% for(x=0;x<dep.length;x++) { 
+                          if(dep[x]==data.department){ %>
+                            <option value="<%= dep[x] %>" selected><%= dep[x] %></option>
+                          <% }else{ %>
+                            <option value="<%= dep[x] %>"><%= dep[x] %></option>
+                          <%  }
+                          } %>
+                        
+                      </select>
+                    
+                    <select class="form-select" aria-label="Default select example" name="shift">
+                        <% let shift = ["Day","Evening"]; %>
+                        <% for(x=0;x<shift.length;x++) { 
+                          if(shift[x]==data.shift){ %>
+                            <option value="<%= shift[x] %>" selected><%= shift[x] %></option>
+                          <% }else{ %>
+                            <option value="<%= shift[x] %>"><%= shift[x] %></option>
+                          <%  }
+                          } %>
+
+                      </select>
+                      
+                      <select class="form-select" aria-label="Default select example" name="duration">
+                        <% let duration = ["1","2","3","4","5"]; %>
+
+                        <% for(x=0;x<duration.length;x++) { 
+                          if(duration[x]==data.duration){ %>
+                            <option value="<%= duration[x] %>" selected><%= duration[x] %> years</option>
+                          <% }else{ %>
+                            <option value="<%= duration[x] %>"><%= duration[x] %> years</option>
+                          <%  }
+                          } %>
+
+                      </select>
+
+                      <div class="mb-3">
+                        <input type="text" name="cost" class="form-control" aria-describedby="emailHelp" placeholder="Regular Cost" value="<%= data.cost %>">
+                      </div>
+
+                      <input type="text" name="obj_id" value="<%= data._id %>" hidden>
+                    
+                </div>
+
+               
+                <button type="submit" class=" btn btn-success btn-sm publish-btn">Update</button>
+            </form>
+        </div>
+
+        
+
+
+
+      
+    </div>
+  </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+
+</html>
