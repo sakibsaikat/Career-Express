@@ -6,10 +6,6 @@ let def1 = document.getElementById("def1");
 let def2 = document.getElementById("def2");
 let def3 = document.getElementById("def3");
 let def4 = document.getElementById("def4");
-let def5 = document.getElementById("def5");
-let def6 = document.getElementById("def6");
-let def7 = document.getElementById("def7");
-let def8 = document.getElementById("def8");
 let expand=0;
 
 
@@ -22,10 +18,6 @@ dashBtn.addEventListener("click",function(){
         def2.style.display="block";
         def3.style.display="block";
         def4.style.display="block";
-        def5.style.display="block";
-        def6.style.display="block";
-        def7.style.display="block";
-        def8.style.display="block";
         expand=1;
     }
     else{
@@ -36,10 +28,6 @@ dashBtn.addEventListener("click",function(){
         def2.style.display="none";
         def3.style.display="none";
         def4.style.display="none";
-        def5.style.display="none";
-        def6.style.display="none";
-        def7.style.display="none";
-        def8.style.display="none";
         expand=0;
     }
    

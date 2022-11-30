@@ -18,7 +18,7 @@ let userSchema = new mongo.Schema({
         required: true
     },
     dateofbirth: {
-        type: Date,
+        type: String,
         required: true
     },
     gender: {

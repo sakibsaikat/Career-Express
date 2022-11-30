@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Panel Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/universitydashboard.css">
+  <link rel="stylesheet" href="/css/createunipost.css">
+</head>
+
+<body>
+
+  <div class="mainContainer d-flex justify-content-start">
+
+    <%- include("../partials/sidebarc.ejs") %>
+
+    <div id="right-content" class="contents">
+
+    <%- include("../partials/headeru.ejs") %>
+
+    <div class="content2">
+
+        <p class="display-6 ms-5 text-muted mt-4 fs-2">University Panel Requests</p>
+
+        <hr class="hr1">
+
+        <div class="table-box">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">University ID</th>
+                    <th scope="col">University Name</th>
+                    <th scope="col">UGC Approval</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% data.forEach(function(value){ %>
+
+                    <tr>
+                      <td><%= value.university_id %></td>
+                      <td><%= value.name %></td>
+                      <td><%= value.ugcstatus %></td>
+                      <td><%= value.location %></td>
+                      <td><%= value.status %></td>
+                      <td>
+                          <a href="/unilists/<%= value._id %>/<%= value.university_id %>" class="btn btn-success btn-sm">Approve</a>
+                          <a href="/unilistdel/<%= value._id %>" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
+                      </td>
+                    </tr>
+
+                  <% }) %>
+                 
+                 
+                </tbody>
+              </table>
+        </div>
+
+
+
+
+      
+    </div>
+  </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+
+
+
+</html>

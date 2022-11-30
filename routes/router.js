@@ -14,7 +14,7 @@ router.get('/',(req,res)=>{
 
 
 router.get('/registration', (req, res)=> {
-    res.render('registration',{
+    res.render('./admin/registration',{
         areas:areas
     }
     );
@@ -44,6 +44,12 @@ router.get('/udash',(req,res)=>{
 
 
 
+router.get('/uniposts',UniversityController.getUniversityAllPostAPI);
+
+router.get('/postcount',UniversityController.getUniversityPostCountAPI);
+
+
+
 
 
 router.post('/upost',UniversityController.sendDataAPI);
@@ -53,22 +59,32 @@ router.post('/updateupost/:id',UniversityController.updateDataAPI);
 router.get('/unipostdel/:id',UniversityController.deleteDataAPI);
 
 
+//Send pending Request to create universtiy control panel account
+router.post('/unireg',UniversityController.sendUniversityDataAPI);
+
+
+//For Admin Show University Requests List 
+router.get('/unilist',UniversityController.getUniversityReqDataAPI);
+//For Admin Show Approved University List
+router.get('/uniaplist',UniversityController.getUniversityDataAPI);
+//For approve university panel creation request
+router.get('/unilists/:id/:uid',UniversityController.approveUniversityAPI);
+router.get('/unilistdel/:id',UniversityController.delUniversityReqAPI); 
+
+
+//Full Admission Post Controlling Section
+
+router.get('/createunipost/:u_id',UniversityController.sendFullAdmissionPostAPI);
 
 
 
 
+//User Routing Section
+router.post('/send',UserController.SendUserDataAPI);
+router.get('/userlist',UserController.getAllUserDataAPI);
+router.get('/deluser/:id',UserController.deleteUserAPI);
 
 
-// router.post('/send',UserController.SendUserDataAPI);
-// router.post('/sendadpost',AdmissionController.SendUserDataAPI);
-// router.get('/admission',AdmissionController.GetUserDataAPI);
-// router.get('/admission_info/:id',AdmissionController.GetInfoAPI);
-// router.post('/update_admission/:id',AdmissionController.UpdateUserDataAPI);
-
-
-
-
-router.get('/admissionc',AdmissionController.GetCUserDataAPI);
 
 
 

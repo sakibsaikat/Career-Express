@@ -51,7 +51,7 @@
                     <input type="text" placeholder="Mobile" name="mobile" required>
                     <input type="text" placeholder="Email" name="email" required>
                     <input type="password" placeholder="Password" name="password" required>
-                    <input type="date" id="dateofbirth"  name="dateofbirth" required hidden>
+                    <input type="text" id="db"  name="db" required hidden>
                     <div class="other-info">
 
                         <div class="dobs">
@@ -72,7 +72,7 @@
                                 <option value="Month" selected>Month</option>
                                 <% let months=["Jan","Feb","Mar","Apr","May","June","July","Aug","Sep","Oct","Nov","Dec"]; %>
                                     <% for(let x=0;x<months.length;x++){ %>
-                                        <option value="<%= x+1 %>">
+                                        <option value="<%= months[x] %>">
                                             <%= months[x] %>
                                         </option>
                                         <% } %>

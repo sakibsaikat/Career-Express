@@ -1,6 +1,9 @@
 const mongo = require('mongoose');
 
 let universitySchema = new mongo.Schema({
+    university_id:{
+        type:String
+    },
     name:{
         type:String,
         required:true
@@ -24,7 +27,7 @@ let universitySchema = new mongo.Schema({
         type:String,
         required:true
     },
-    eveningstatus:{
+    status:{
         type:String,
         required:true
     }

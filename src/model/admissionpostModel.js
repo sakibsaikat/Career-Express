@@ -2,31 +2,23 @@ const mongo = require('mongoose');
 
 const AdmissionSchema = new mongo.Schema({
     date:{
-        type:Date,
-        required:true
-    },
-    catagory:{
-        type: String,
-        required:true
-    },
-    area:{
-        type: String,
-        required:true
-    },
-    heading:{
         type:String,
         required:true
     },
-    description:{
+    time:{
+        type:String,
+        required:true
+    },
+    post_id:{
         type: String,
         required:true
     },
-    image:{
-        type: String
+    university_id:{
+        type: String,
+        required:true
     },
     status:{
-        type: String,
-        required:true
+        type:String
     }
 });
 
