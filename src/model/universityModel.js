@@ -30,6 +30,9 @@ let universitySchema = new mongo.Schema({
     status:{
         type:String,
         required:true
+    },
+    image:{
+        type:String
     }
 });
 

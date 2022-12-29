@@ -1,4 +1,10 @@
 <div class="header d-flex justify-content-between">
+
+
+
+    <% data.forEach(function(val){ %>
+   
+
     <div class="logo d-flex align-items-center mt-3">
         <div class="imgs d-flex align-items-center">
             <img src="/img/online-learning.png" alt="">
@@ -7,21 +13,32 @@
     </div>
     <div class="right d-flex">
 
-        <div class="img-pro">
-            <img src="/img/pro.PNG" alt="profile_pic" width="40" height="40">
-        </div>
+        <% if(val.image){ %>
+            <div class="img-pro">
+                <img src="/unipic/<%= val.image %>" alt="profile_pic" width="40" height="40">
+            </div>
+        <% }else{ %>
+            <div class="img-pro">
+                <img src="/img/avatar.png" alt="profile_pic" width="40" height="40">
+            </div>
+        <% } %>
+
+       
 
         <div class="dropdown">
             <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Roni Akter
+                <%= val.name %>
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="/uniprofile">Profile</a></li>
                 <li><a class="dropdown-item" href="#">Setting</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="/unilogout">Logout</a></li>
             </ul>
         </div>
+
+        <% }) %>
+
     </div>
 </div>

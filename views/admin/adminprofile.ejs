@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adimn Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/adminprofile.css">
+</head>
+<body>
+
+
+    <% admindata.forEach(function(val){ %>
+
+   
+    
+    <div class="box">
+        <div class="img-box">
+            <% if(val.image){ %>
+                <div class="profile-pic">
+                    <img id="pro-img" src="/adminpic/<%= val.image %>" width="100%" alt="">
+                </div>
+            <% }else{ %>
+                <div class="profile-pic">
+                    <img id="pro-img" src="/img/avatar.png" width="100%" alt="">
+                </div>
+            <% } %>
+            
+        </div>
+        <div class="button-box d-flex justify-content-center mt-4">
+            <button id="upload" class="btn btn-success">Upload</button>
+
+            <form action="/uplaodimg" method="post" enctype="multipart/form-data">
+
+                <input type="file" name="profile_pic" id="profile_pic"
+                 onchange="document.getElementById('pro-img').src = window.URL.createObjectURL(this.files[0])" hidden>
+                 <button type="submit" class="btn btn-dark ms-2">Save</button>
+            </form>
+
+        </div>
+
+        <div class="admin-info text-center mt-4">
+            <p>Admin ID: <%= val.admin_id %></p>
+            <p>Admin Name: <%= val.admin_name %></p>
+            <p>Admin Password: <%= val.password %></p>
+        </div>
+        
+    </div>
+
+
+    <% }) %>
+ 
+
+
+    <script>
+        let upbtn = document.getElementById('upload');
+        let file_btn = document.getElementById('profile_pic');
+
+        upbtn.addEventListener('click',function(e){
+            file_btn.click();
+        });
+
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>

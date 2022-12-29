@@ -1,0 +1,24 @@
+body{
+    background-color: rgb(214, 251, 223);
+}
+.profile-pic{
+    width: 130px;
+    height: 130px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: 5px solid rgb(6, 154, 29);
+    outline: 5px solid greenyellow;
+}
+
+
+.box{
+    text-align: center;
+    width: 100%;
+    padding: 50px;
+}
+
+.img-box{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}

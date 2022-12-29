@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Waiver Post</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/universitydashboard.css">
+  <link rel="stylesheet" href="/css/createunipost.css">
+</head>
+
+<body>
+
+  <div class="mainContainer d-flex justify-content-start">
+
+    <%- include("../partials/sidebaru.ejs") %>
+
+    <div id="right-content" class="contents">
+
+    <%- include("../partials/headeru.ejs") %>
+
+    <div class="content2">
+
+        <p class="display-6 ms-5 text-muted mt-4 fs-2">Update Post</p>
+
+        <div class="post-form">
+            <form action="/updatewaiverpost/<%= wdata._id %>" id="form1" class="form" method="POST">
+                <div class="department">
+
+                    <select class="form-select" aria-label="Default select example" name="ssc">
+                        <% let ssc = ["SSC","Alim"]; %>
+                        <% for(let x=0;x<ssc.length;x++) { 
+                              if(ssc[x]==wdata.ssc){ %>
+
+                                <option value="<%= ssc[x] %>" selected><%= ssc[x] %></option>
+
+                              <% }else{ %>
+                                <option value="<%= ssc[x] %>"><%= ssc[x] %></option>
+                         <%  }
+                         } %>
+
+                      </select>
+                      <div class="mb-3">
+                        <input type="text" name="gpa" class="form-control" aria-describedby="emailHelp" placeholder="GPA" value="<%= wdata.gpa %>">
+                      </div>
+
+                      <select class="form-select" aria-label="Default select example" name="hsc">
+                        <% let hsc = ["HSC","Diploma", "Dakhil"]; %>
+                        <% for(let x=0;x<hsc.length;x++) { 
+                              if(hsc[x]==wdata.hsc){ %>
+
+                                <option value="<%= hsc[x] %>" selected><%= hsc[x] %></option>
+
+                              <% }else{ %>
+                                <option value="<%= hsc[x] %>"><%= hsc[x] %></option>
+                         <%  }
+                         } %>
+
+                      </select>
+                      <div class="mb-3">
+                        <input type="text" name="cgpa" class="form-control" aria-describedby="emailHelp" placeholder="GPA/CGPA" value="<%= wdata.cgpa %>">
+                      </div>
+
+                      <div class="mb-3">
+                        <input type="text" name="waiver" class="form-control" aria-describedby="emailHelp" placeholder="Waiver" value="<%= wdata.waiver %>">
+                    </div>
+                    
+                    
+
+                      
+                    
+                </div>
+
+               
+                <button type="submit" class=" btn btn-success btn-sm publish-btn">Update</button>
+            </form>
+        </div>
+
+        
+
+
+
+      
+    </div>
+  </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<div class="header d-flex justify-content-between">
+    <div class="logo d-flex align-items-center mt-3">
+        <div class="imgs d-flex align-items-center">
+            <img src="/img/online-learning.png" alt="">
+        </div>
+        <p class="display-6 fs-4 text-muted ms-2 mt-3">Career Express</p>
+    </div>
+    <div class="right d-flex">
+
+        <% adata.forEach(function(val){ %>
+
+
+            <% if(val.image){ %>
+                <div class="img-pro">
+                    <img src="/adminpic/<%= val.image %>" alt="profile_pic" width="100%" >
+                </div>
+        
+            <% }else{ %>
+                <div class="img-pro">
+                    <img src="/img/avatar.png" alt="profile_pic" width="100%" >
+                </div>
+        
+            <% } %>
+
+        
+
+        
+        <div class="dropdown me-5">
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <%= val.admin_name %>
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item" href="/adminprofile">Profile</a></li>
+                <li><a class="dropdown-item" href="#">Setting</a></li>
+                <li><a class="dropdown-item" href="/adminlogout">Logout</a></li>
+            </ul>
+        </div>
+
+        <% }) %>
+    </div>
+</div>

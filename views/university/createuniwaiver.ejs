@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Waiver Post</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/universitydashboard.css">
+  <link rel="stylesheet" href="/css/createunipost.css">
+  <link rel="stylesheet" href="/css/createuniwaiver.css">
+</head>
+
+<body>
+
+  <div class="mainContainer d-flex justify-content-start">
+
+    <%- include("../partials/sidebaru.ejs") %>
+
+    <div id="right-content" class="contents">
+
+    <%- include("../partials/headeru.ejs") %>
+
+    <div class="content2">
+
+        <p class="display-6 ms-5 text-muted mt-4 fs-2">Create Admission Waiver Post</p>
+
+        <div class="post-form">
+            <form action="/uwaiver_post" id="form1" class="form" method="POST">
+                <div class="department">
+
+                    <select class="form-select" aria-label="Default select example" name="ssc">
+                        <option selected disabled>SSC/Equivalent</option>
+                        <option value="SSC">SSC</option>
+                        <option value="Alim">Alim</option>
+                    </select>
+                    
+                    <div class="mb-3">
+                        <input type="text" name="gpa" class="form-control" aria-describedby="emailHelp" placeholder="GPA">
+                    </div>
+
+                    <select class="form-select" aria-label="Default select example" name="hsc">
+                        <option selected disabled>HSC/Equivalent</option>
+                        <option value="HSC">HSC</option>
+                        <option value="Diploma">Diploma</option>
+                        <option value="Dakhil">Dakhil</option>
+                    </select>
+                    
+                    <div class="mb-3">
+                        <input type="text" name="cgpa" class="form-control" aria-describedby="emailHelp" placeholder="GPA/CGPA">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" name="waiver" class="form-control" aria-describedby="emailHelp" placeholder="Waiver">
+                    </div>
+                    
+                    
+                </div>
+
+               
+                <button type="submit" class=" btn btn-success btn-sm publish-btn">Add</button>
+            </form>
+        </div>
+
+        <hr class="hr1">
+
+        <div class="table-box">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Time</th>
+                    <th scope="col">SSC/Equivalent</th>
+                    <th scope="col">GPA</th>
+                    <th scope="col">HSC/Equivalent</th>
+                    <th scope="col">GPA/CGPA</th>
+                    <th scope="col">Waiver</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% wdata.forEach(function(value){ %>
+
+                    <tr>
+                      <td><%= value.time %></td>
+                      <td><%= value.ssc %></td>
+                      <td><%= value.gpa %></td>
+                      <td><%= value.hsc %></td>
+                      <td><%= value.cgpa %></td>
+                      <td><%= value.waiver %></td>
+                     
+                      <td>
+                          <a href="/updatewaiverpost/<%= value._id %>" class="btn btn-success btn-sm"><i class="fa-solid fa-pen-to-square"></i></a>
+                          <a type="submit" href="/uniwaiverdel/<%= value._id %>" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
+                      </td>
+                    </tr>
+
+                  <% }) %>
+
+                 
+                 
+                 
+                </tbody>
+              </table>
+        </div>
+
+        <a href="/createwaiverpost" class="btn btn-success pb-btn">Publish</a>
+
+
+
+      
+    </div>
+  </div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+
+
+
+</html>
