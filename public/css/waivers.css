@@ -1,0 +1,21 @@
+.wav-post{
+    width: 70%;
+    margin: 15px auto;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 3px 3px 15px lightgray;
+}
+
+body{
+    overflow: hidden;
+}
+.contents{
+    overflow-y: auto;
+}
+
+.header{
+    position: sticky;
+    top: 0;
+    right: 0;
+}

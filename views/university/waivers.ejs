@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waiver Posts</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="/css/universitydashboard.css">
+  <link rel="stylesheet" href="/css/createunipost.css">
+  <link rel="stylesheet" href="/css/createuniwaiver.css">
+  <link rel="stylesheet" href="/css/waivers.css">
+</head>
+
+<body>
+
+  <div class="mainContainer d-flex justify-content-start">
+
+    <%- include("../partials/sidebaru.ejs") %>
+
+    <div id="right-content" class="contents">
+
+    <%- include("../partials/headeru.ejs") %>
+
+    <div class="content2">
+
+        <p class="display-6 ms-5 text-muted mt-4 fs-2">Waiver Posts</p>
+
+        <% for(let x=0;x<wavdata.length;x++){ %>
+        
+        <% let showpostid=1 %>
+          
+
+        <div class="waiver-box">
+
+          <% wavdata[x].forEach(function(val1){ %>
+
+          <% if(showpostid){ %>
+
+          
+          
+          <div class="wav-post">
+            <p class="text-muted text-center p-1 display-6 fs-4">Waiver Post ID - <%= val1.waiver_post_id %> </p>
+            <table class="table text-dark">
+              <thead>
+                <tr>
+                  <th scope="col">SSC</th>
+                  <th scope="col">HSC</th>
+                  <th scope="col">Waiver</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% showpostid=0 %>
+              <% } %>
+                
+
+                  <tr>
+                    <td><%= val1.ssc %></td>
+                    <td><%= val1.hsc %></td>
+                    <td><%= val1.waiver %>%</td>
+                  </tr>
+
+                <% }) %>
+                
+           
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+
+        <% } %>
+        
+    </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+
+
+
+</html>

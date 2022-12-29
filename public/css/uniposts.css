@@ -1,0 +1,35 @@
+.uni-post{
+    width: 70%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 3px 3px 15px lightgray;
+    position: relative;
+    z-index: 20;
+}
+
+body{
+    overflow: hidden;
+}
+.contents{
+    overflow-y: auto;
+}
+
+.header{
+    position: sticky;
+    z-index: 30;
+    top: 0;
+    right: 0;
+}
+
+.status{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: inline-block;
+    background-color: green;
+    padding: 5px;
+    color: white;
+    border-radius: 7px;
+}

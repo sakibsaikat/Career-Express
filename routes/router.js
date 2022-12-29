@@ -4,6 +4,9 @@ const multer = require('multer');
 const path = require('path');
 const router = express.Router();
 const Admission = require('./../src/model/admissionpostModel');
+const UnipostModel = require('./../src/model/unipostModel');
+const waiversModel = require('./../src/model/waiverpostmodel');
+const waiverModel = require('./../src/model/waiverModel');
 let areas = require('./../src/model/try.js');
 let UserController = require('./../src/controller/userController');
 let AdmissionController = require('./../src/controller/admissionController');
@@ -271,6 +274,81 @@ router.get('/adminprofile',async (req,res)=>{
 router.post('/uplaodimg',uploadAdmin.single('profile_pic'),(req,res)=>{
     res.redirect('/adminprofile');
 });
+
+
+
+
+
+
+
+//University post and waiver view
+router.get('/universityposts',async (req,res)=>{
+    const unidata = await universityModel.find({university_id:req.session.university_id});
+
+    const post_id_data = await Admission.find({university_id:req.session.university_id});
+
+    let post_ids = [];
+    let i=0;
+    post_id_data.forEach(function(val){
+        post_ids[i]={
+            post_id:val.post_id
+        }
+        i++;
+    });
+
+
+    let post_data = [];
+
+    for(let x=0;x<post_ids.length;x++){
+        post_data[x] = await UnipostModel.find(post_ids[x]);
+    } 
+
+    post_data[0].forEach(function(val){
+        console.log(val);
+    });
+   
+
+    res.render('./university/uniposts',{
+        data:unidata,
+        postdata:post_data 
+    });
+});
+
+
+
+router.get('/waivers',async (req,res)=>{
+    const unidata = await universityModel.find({university_id:req.session.university_id});
+
+    const waiver_id_data = await waiversModel.find({university_id:req.session.university_id});
+
+    let wav_ids = [];
+    let i=0;
+    waiver_id_data.forEach(function(val){
+        wav_ids[i]={
+            waiver_post_id:val.waiver_post_id
+        }
+        i++;
+    });
+
+
+    wav_post_data = [];
+
+    for(let x=0;x<wav_ids.length;x++){
+        wav_post_data[x] = await waiverModel.find(wav_ids[x]);
+    } 
+
+    wav_post_data[0].forEach(function(val){
+        console.log(val);
+    });
+   
+
+    res.render('./university/waivers',{
+        data:unidata,
+        wavdata:wav_post_data 
+    });
+});
+
+
 
 
 
